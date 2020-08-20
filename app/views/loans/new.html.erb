@@ -20,11 +20,19 @@
 
 <%= f.text_field :car_manufacturer, list: "cars_autocomplete" %>
   <datalist id="cars_autocomplete">
-  byebug
     <% @cars.each do |car| %>
       <option value="<%= car.manufacturer %>">
     <% end %>
   </datalist>
+
+  <%= f.text_field :car_model, list: "cars_autocomplete" %>
+  <datalist id="cars_autocomplete">
+    <% @cars.each do |car| %>
+      <option value="<%= car.model %>">
+    <% end %>
+  </datalist>
+
+
 <br>
 <br>
 <%= f.submit 'submit'%> 

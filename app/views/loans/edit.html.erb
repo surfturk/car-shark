@@ -1,0 +1,19 @@
+<h1>Edit loan info</h1>
+<%= form_for @loan do |f|%>
+<% if @loan.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+       <% @loan.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %> 
+     </ul>
+   <% end %>
+
+  <%= f.label :category %><br>
+  <%= f.text_field :category %><br>
+
+  <%= f.label :amount %><br>
+  <%= f.text_field :amount %><br>
+
+  <%= f.submit 'update'%>
+<% end %>

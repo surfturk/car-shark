@@ -3,7 +3,8 @@
 <% @cars.each do |car| %>
   <p>
      Manufacturer: <%= link_to car.manufacturer, car_path(car) %><br>
-     Model: <%= car.model %> | 
+     Model: <%= car.model %> <br>
+     Year: <%= car.year %> <br> | 
      <%= link_to 'edit', edit_car_path(car) %> |
      <%= link_to 'delete',car, method: :delete %>
   </p>

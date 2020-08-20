@@ -13,4 +13,13 @@ class Loan < ApplicationRecord
     def car_manufacturer
        self.car ? self.car : nil
     end
+
+    def car_model=(model)
+        car = Car.find_or_create_by(model: model)
+        self.car = car
+    end
+
+    def car_model
+       self.car ? self.car : nil
+    end
 end

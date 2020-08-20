@@ -51,6 +51,6 @@ class LoansController < ApplicationController
  
      private
        def allowed_params
-         params.require(:loan).permit(:category, :amount, :car_manufacturer)
+         params.require(:loan).permit(:category, :amount, :car_manufacturer, :car_model)
        end
 end

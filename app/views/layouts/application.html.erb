@@ -7,11 +7,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
   </head>
 
   <body>
 
-  <h1>Right on, man.</h1>
+  <h1>CarShark</h1>
     <%= yield %>
   </body>
 </html>
