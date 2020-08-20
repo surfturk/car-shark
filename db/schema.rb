@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_232713) do
+ActiveRecord::Schema.define(version: 2020_08_20_171222) do
+
+  create_table "cars", force: :cascade do |t|
+    t.string "manufacturer"
+    t.string "model"
+    t.integer "year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.string "category"
+    t.integer "amount"
+    t.integer "user_id"
+    t.integer "car_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_id"], name: "index_loans_on_car_id"
+    t.index ["user_id"], name: "index_loans_on_user_id"
+  end
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'index ' for column 'uid'
