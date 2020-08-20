@@ -19,8 +19,9 @@
 
 
   <%= f.fields_for  :car do |car_fields|  %>
-    Manufacturer: <%= car_fields.text_field :manufacturer %>
-    Model: <%= car_fields.text_field :model %>
+    Model: <%= car_fields.select :model, ["Colorado", "Tahoe", "Traverse"]%>
+    Year: <%= car_fields.text_field :year, placeholder: "2009" %>
+    <%= hidden_field_tag(:user_id, params[:user_id]) %>
   <% end %>
 
   <br>

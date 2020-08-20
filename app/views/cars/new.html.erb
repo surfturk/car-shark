@@ -8,14 +8,9 @@
       <% end %> 
      </ul>
     <% end %>
-  <%= f.label :manaufacturer %><br>
-  <%= f.text_field :manufacturer%><br>
-
-  <%= f.label :model %><br>
-  <%= f.text_field :model%><br>
-
-  <%= f.label :year %><br>
-  <%= f.text_field :year%><br>
+    <%= form_for @car do |car_fields| %>
+  <%= render partial: "/loans/form", locals: {car_fields: car_fields}%>
 
  <%= f.submit 'save'%>
+ <% end %>
  <% end %>

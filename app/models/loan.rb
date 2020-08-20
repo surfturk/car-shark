@@ -5,10 +5,10 @@ class Loan < ApplicationRecord
      validates :category, presence: true
      validates :amount, presence: true
 
-     def car=(attributes)
-        self.car = Car.find_or_create_by(attributes)
-      end
-      def car
-         self.car ? self.car : nil
-      end
+   #   def car_manufacturer=(attributes)
+   #      self.car = Car.find_or_create_by(attributes)
+   #    end
+   #    def car
+   #       self.car ? self.car.manufacturer : nil
+   #    end
 end

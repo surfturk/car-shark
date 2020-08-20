@@ -14,16 +14,16 @@ class LoansController < ApplicationController
        #will have template
        @loan = Loan.new
        @cars = Car.all
+       @loan.build_car
        
      end
  
      def create # save new record
        #wll save and redirect
-       @loan = Loan.new(allowed_params)
+       @loan = current_user.loans.build(allowed_params)
        if @loan.save
-         redirect_to loans_path
+         redirect_to loan_car_path(@loan.id,@loan.car.id)
        else
-        @cars = Car.all
         render 'new'
        end
      end
@@ -53,6 +53,10 @@ class LoansController < ApplicationController
  
      private
        def allowed_params
-         params.require(:loan).permit(:category, :amount, :car_manufacturer, :car_model)
+         params.require(:loan).permit(:category, :amount, user:[:current_user], car_attributes: [:manufacturer, :model, :year])
        end
+
+      
 end
+
+

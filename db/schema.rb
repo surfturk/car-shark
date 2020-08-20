@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_08_20_171222) do
 
   create_table "cars", force: :cascade do |t|
-    t.string "manufacturer"
+    t.string "manufacturer", default: "Chevrolet"
     t.string "model"
     t.integer "year"
     t.datetime "created_at", precision: 6, null: false
