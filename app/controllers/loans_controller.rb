@@ -14,6 +14,7 @@ class LoansController < ApplicationController
        #will have template
        @loan = Loan.new
        @cars = Car.all
+       
      end
  
      def create # save new record
@@ -22,7 +23,8 @@ class LoansController < ApplicationController
        if @loan.save
          redirect_to loans_path
        else
-         render 'new'
+        @cars = Car.all
+        render 'new'
        end
      end
  

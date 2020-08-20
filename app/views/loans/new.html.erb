@@ -18,20 +18,10 @@
   Pick a vehicle
 
 
-<%= f.text_field :car_manufacturer, list: "cars_autocomplete" %>
-  <datalist id="cars_autocomplete">
-    <% @cars.each do |car| %>
-      <option value="<%= car.manufacturer %>">
-    <% end %>
-  </datalist>
-
-  <%= f.text_field :car_model, list: "cars_autocomplete" %>
-  <datalist id="cars_autocomplete">
-    <% @cars.each do |car| %>
-      <option value="<%= car.model %>">
-    <% end %>
-  </datalist>
-
+<%= f.fields_for  :car do |car_fields|  %>
+  Manufacturer: <%= car_fields.text_field :manufacturer %>
+  Model: <%= car_fields.text_field :model %>
+<% end %>
 
 <br>
 <br>
