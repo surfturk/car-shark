@@ -18,14 +18,14 @@
   Pick a vehicle
 
 
-<%= f.fields_for  :car do |car_fields|  %>
-  Manufacturer: <%= car_fields.text_field :manufacturer %>
-  Model: <%= car_fields.text_field :model %>
-<% end %>
+  <%= f.fields_for  :car do |car_fields|  %>
+    Manufacturer: <%= car_fields.text_field :manufacturer %>
+    Model: <%= car_fields.text_field :model %>
+  <% end %>
 
-<br>
-<br>
-<%= f.submit 'submit'%> 
+  <br>
+  <br>
+  <%= f.submit 'submit'%> 
 
 
 <% end %>
