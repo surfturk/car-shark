@@ -1,0 +1,33 @@
+<h1>Add New Loan</h1>
+<%= form_for @loan do |f|%>
+   <% if @loan.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+       <% @loan.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %> 
+     </ul>
+  <% end %>
+  <%= f.label :category%><br>
+  <%= f.text_field :category%><br>
+
+  <%= f.label :amount %><br>
+  <%= f.text_field :amount%><br>
+
+  <br>
+  Pick a vehicle
+
+
+<%= f.text_field :car_manufacturer, list: "cars_autocomplete" %>
+  <datalist id="cars_autocomplete">
+  byebug
+    <% @cars.each do |car| %>
+      <option value="<%= car.manufacturer %>">
+    <% end %>
+  </datalist>
+<br>
+<br>
+<%= f.submit 'submit'%> 
+
+
+<% end %>

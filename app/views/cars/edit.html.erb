@@ -1,0 +1,19 @@
+<h1>Edit vehicle info</h1>
+<%= form_for @car do |f|%>
+<% if @car.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+       <% @car.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %> 
+     </ul>
+   <% end %>
+
+  <%= f.label :manufacturer %><br>
+  <%= f.text_field :manufacturer %><br>
+
+  <%= f.label :model %><br>
+  <%= f.text_field :model %><br>
+
+  <%= f.submit 'update'%>
+<% end %>
