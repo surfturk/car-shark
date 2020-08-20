@@ -19,8 +19,7 @@ class LoansController < ApplicationController
      def create # save new record
        #wll save and redirect
        @loan = Loan.new(allowed_params)
-       if @loan.valid?
-          @loan.save
+       if @loan.save
          redirect_to loans_path
        else
          render 'new'

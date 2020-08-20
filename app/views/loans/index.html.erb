@@ -1,0 +1,10 @@
+<%= link_to 'Add New Loan', new_loan_path %>
+
+<% @loans.each do |loan| %>
+  <p>
+     Category: <%= link_to loan.category, loan_path(loan) %><br>
+     Amount: <%= loan.amount %> | 
+     <%= link_to 'edit', edit_loan_path(loan) %> |
+     <%= link_to 'delete',loan, method: :delete %>
+  </p>
+<% end %>
