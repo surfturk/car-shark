@@ -20,6 +20,10 @@
 
   <h1>CarShark</h1>
     <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    <br>
+    <%= link_to 'View Loans', loans_path %>
+    <br>
+    <%= link_to 'View Vehicles', cars_path %>
     <%= yield %>
   </body>
 </html>

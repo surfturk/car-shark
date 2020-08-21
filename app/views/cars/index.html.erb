@@ -1,3 +1,4 @@
+<br>
 <%= link_to 'Add New Vehicle', new_car_path %>
 
 <% @cars.each do |car| %>
@@ -9,3 +10,5 @@
      <%= link_to 'delete',car, method: :delete %>
   </p>
 <% end %>
+<br>
+<%= link_to 'go back', application_index_path %>

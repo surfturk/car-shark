@@ -53,4 +53,7 @@ class CarsController < ApplicationController
          params.require(:car).permit(:manufacturer, :model, :year)
        end
 
+       def has_permission(object)
+        object.user == current_user
+    end
 end
