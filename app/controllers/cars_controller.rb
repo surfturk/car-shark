@@ -1,4 +1,6 @@
 class CarsController < ApplicationController
+    helper_method :has_permission
+  
     def index # show all records
         #will have template
         @cars = Car.all
@@ -54,6 +56,6 @@ class CarsController < ApplicationController
        end
 
        def has_permission(object)
-        object.user == current_user
+         object.users.include?(current_user)
     end
 end

@@ -1,4 +1,6 @@
 <h1>Edit vehicle info</h1>
+
+
 <%= form_for @car do |f|%>
 <% if @car.errors.any? %>
     <h2>Errors:</h2>
@@ -8,12 +10,9 @@
       <% end %> 
      </ul>
    <% end %>
-
-  <%= f.label :manufacturer %><br>
-  <%= f.text_field :manufacturer %><br>
-
-  <%= f.label :model %><br>
-  <%= f.text_field :model %><br>
-
+   <%= form_for @car do |car_fields| %>
+  <%= render partial: "/loans/form", locals: {car_fields: car_fields}%>
   <%= f.submit 'update'%>
 <% end %>
+<% end %>
+

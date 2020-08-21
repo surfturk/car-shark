@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -19,11 +22,22 @@
   <body>
 
   <h1>CarShark</h1>
-    <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-    <br>
-    <%= link_to 'View Loans', loans_path %>
-    <br>
-    <%= link_to 'View Vehicles', cars_path %>
+  <p>Powered by Chevrolet</p>
+  <% if current_user %>
+  <div class="topnav">
+
+   <div class=""> <p><%= link_to 'logout', destroy_user_session_path, method: :delete %></p></div>
+   <div class=""><p> <%= link_to 'View Loans', loans_path %></p></div>
+    <div class=""><p><%= link_to 'View Vehicles', cars_path %></p></div>
+   </div>
+  <% end %>
+    <div class="content">
     <%= yield %>
+   </div>
+
+
+<div class="footer">
+  <p>CarShark 2020</p>
+</div>
   </body>
 </html>

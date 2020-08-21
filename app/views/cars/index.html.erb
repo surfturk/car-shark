@@ -1,14 +1,25 @@
-<br>
-<%= link_to 'Add New Vehicle', new_car_path %>
 
-<% @cars.each do |car| %>
-  <p>
-     Manufacturer: <%= link_to car.manufacturer, car_path(car) %><br>
-     Model: <%= car.model %> <br>
-     Year: <%= car.year %> <br> | 
-     <%= link_to 'edit', edit_car_path(car) %> |
-     <%= link_to 'delete',car, method: :delete %>
-  </p>
-<% end %>
+<%= link_to 'Add New Vehicle', new_car_path %>
+<div class ="grid-container">
+ <div class="grid-item">
+
+  <% @cars.each do |car| %>
+  <% if has_permission(car)%>
+  <ul>
+  <li>
+    <p>
+      Manufacturer: <%= link_to car.manufacturer, car_path(car) %><br>
+      Model: <%= car.model %> <br>
+      Year: <%= car.year %> <br> | 
+      <%= link_to 'edit', edit_car_path(car) %> |
+      <%= link_to 'delete',car, method: :delete %>
+    </p>
+    </li>
+    </ul>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 <br>
-<%= link_to 'go back', application_index_path %>
+<%= link_to 'back to home', application_index_path %>
+
