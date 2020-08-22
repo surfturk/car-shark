@@ -1,7 +1,10 @@
 
 <%= link_to 'Add New Vehicle', new_car_path %>
  <br>
+ <br>
+ <div class="grid-container">
   <% @cars.each do |car| %>
+  <div>
       <br>
       <br>
       Customer Name: <%= car.customer_name%><br>
@@ -10,8 +13,9 @@
       Year: <%= car.year %> <br> | 
       <%= link_to 'edit', edit_car_path(car) %> |
       <%= link_to 'delete',car, method: :delete %>
+   </div>   
   <% end %>
-
+</div>
 <br>
 <br>
 <%= link_to 'back to home', application_index_path %>

@@ -1,13 +1,21 @@
 <%= link_to 'Add New Loan', new_loan_path %>
+<br>
+<br>
 <div class ="grid-container">
-  <div class="grid-item">
   <% @loans.each do |loan| %>
-    <p>
+  <div >
+  <p>
+      Customer Name: <%= loan.car.customer_name%><br>
+    
       Category: <%= link_to loan.category, loan_path(loan) %><br>
       Amount: <%= loan.amount %> | 
       <%= link_to 'edit', edit_loan_path(loan) %> |
       <%= link_to 'delete',loan, method: :delete %>
     </p>
-  <% end %>
   </div>
+<% end %>
 </div>
+<br>
+<br>
+
+<%= link_to 'back to home', application_index_path %>

@@ -3,6 +3,7 @@ class LoansController < ApplicationController
     def index # show all records
         #will have template
         @loans = Loan.all
+        @cars = Car.all
      end
  
      def show # show single record
