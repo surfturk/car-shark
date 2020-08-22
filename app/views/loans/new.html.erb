@@ -16,8 +16,8 @@
 
     <br>
     Pick a vehicle by customer name:
-     <%= hidden_field_tag(:car_id, params[:car_id]) %>
-    <%= f.collection_select :car_id, Car.all, :customer_name, :customer_name, include_blank: true %><br> 
+    <%=f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.collection_select :car_id, Car.all, :id, :customer_name, include_blank: true %><br> 
     <br>
     <%= f.submit 'submit'%> 
 

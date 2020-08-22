@@ -13,9 +13,6 @@ class LoansController < ApplicationController
      def new # display form for new record
        #will have template
        @loan = Loan.new
-       @cars = Car.all
-       @loan.build_car
-       
      end
  
      def create # save new record
@@ -53,7 +50,7 @@ class LoansController < ApplicationController
  
      private
        def allowed_params
-         params.require(:loan).permit(:category, :amount, user:[:current_user], car_attributes: [:id])
+         params.require(:loan).permit(:category, :amount, :user_id, :car_id)
        end
 
 end
