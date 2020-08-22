@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
     helper_method :has_permission
-  
+    
+
     def index # show all records
         #will have template
         @cars = Car.all
@@ -19,8 +20,7 @@ class CarsController < ApplicationController
      def create # save new record
        #wll save and redirect
        @car = Car.new(allowed_params)
-       if @car.valid?
-          @car.save
+       if @car.save
          redirect_to cars_path
        else
          render 'new'
@@ -52,7 +52,7 @@ class CarsController < ApplicationController
  
      private
        def allowed_params
-         params.require(:car).permit(:manufacturer, :model, :year)
+         params.require(:car).permit(:customer_name, :manufacturer, :model, :year,)
        end
 
        def has_permission(object)

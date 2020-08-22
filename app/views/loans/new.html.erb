@@ -8,25 +8,17 @@
       <% end %> 
      </ul>
   <% end %>
-  <%= f.label :category%><br>
-  <%= f.text_field :category%><br>
+    <%= f.label :category%><br>
+    <%= f.text_field :category%><br>
 
-  <%= f.label :amount %><br>
-  <%= f.text_field :amount%><br>
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount%><br>
 
-  <br>
-  Pick a vehicle
-
-
-  <%= f.fields_for  :car do |car_fields|  %>
-    Model: <%= car_fields.select :model, ["Colorado", "Tahoe", "Traverse"]%>
-    Year: <%= car_fields.text_field :year, placeholder: "2009" %>
-    <%= hidden_field_tag(:user_id, params[:user_id]) %>
-  <% end %>
-
-  <br>
-  <br>
-  <%= f.submit 'submit'%> 
-
+    <br>
+    Pick a vehicle by customer name:
+     <%= hidden_field_tag(:car_id, params[:car_id]) %>
+    <%= f.collection_select :car_id, Car.all, :customer_name, :customer_name, include_blank: true %><br> 
+    <br>
+    <%= f.submit 'submit'%> 
 
 <% end %>

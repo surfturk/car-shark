@@ -22,7 +22,7 @@ class LoansController < ApplicationController
        #wll save and redirect
        @loan = current_user.loans.build(allowed_params)
        if @loan.save
-         redirect_to loan_car_path(@loan.id,@loan.car.id)
+         redirect_to loan_path(@loan)
        else
         render 'new'
        end
@@ -53,10 +53,9 @@ class LoansController < ApplicationController
  
      private
        def allowed_params
-         params.require(:loan).permit(:category, :amount, user:[:current_user], car_attributes: [:manufacturer, :model, :year])
+         params.require(:loan).permit(:category, :amount, user:[:current_user], car_attributes: [:id])
        end
 
-      
 end
 
 

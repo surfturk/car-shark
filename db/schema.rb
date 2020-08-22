@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_171222) do
+ActiveRecord::Schema.define(version: 2020_08_21_234622) do
 
   create_table "cars", force: :cascade do |t|
     t.string "manufacturer", default: "Chevrolet"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_171222) do
     t.integer "year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "customer_name"
   end
 
   create_table "loans", force: :cascade do |t|
