@@ -5,6 +5,13 @@ class CarsController < ApplicationController
     def index # show all records
         #will have template
         @cars = Car.all
+    end
+
+     def model
+      @colorado = Car.colorado
+      @tahoe = Car.tahoe
+      @traverse = Car.traverse
+       render :model
      end
  
      def show # show single record

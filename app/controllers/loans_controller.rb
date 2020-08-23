@@ -1,10 +1,20 @@
 class LoansController < ApplicationController
 
+    def models
+     @colorado = Car.colorado
+      render :model
+    end
+  
+  
+  
+  
     def index # show all records
         #will have template
-        @loans = Loan.all
+        # @loans = Loan.all
         @cars = Car.all
-     end
+        @loans = Loan.all
+      
+    end
  
      def show # show single record
        #will have template

@@ -5,4 +5,6 @@ class Loan < ApplicationRecord
     accepts_nested_attributes_for :car
     validates :category, presence: true
     validates :amount, presence: true
+
+
 end

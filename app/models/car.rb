@@ -5,4 +5,8 @@ class Car < ApplicationRecord
     validates :model, presence: { :message => "can't be blank!"}
     validates :year, presence: { :message => "can't be blank!"}
 
+
+    scope :colorado, -> {self.where(model: "Colorado")}
+    scope :tahoe, -> {self.where(model: "Tahoe")}
+    scope :traverse, -> {self.where(model: "Traverse")}
 end

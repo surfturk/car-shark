@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/cars/model" => "cars#model"
   resources :loans do
     resources :cars
   end
