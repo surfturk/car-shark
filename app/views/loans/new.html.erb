@@ -5,10 +5,16 @@
       <ul>
        <% @loan.errors.full_messages.each do |message| %>
        <li><%= message %></li>
-      <% end %> 
+      <% end %>
      </ul>
-  <% end %>
-    <%= render partial: "form", locals: {f: f}%>
+   <% end %>
+   <%= f.label :category%><br>
+    <%= f.text_field :category%><br>
+
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount%><br>
+   
+   
 <br>
     Pick a vehicle by customer name:
     <%=f.hidden_field :user_id, :value => current_user.id %>

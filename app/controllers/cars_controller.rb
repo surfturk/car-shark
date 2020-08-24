@@ -7,7 +7,6 @@ class CarsController < ApplicationController
     end
 
     def model
-      @cars = Car.all
       @colorado = current_user.cars.colorado
       render :model
     end  

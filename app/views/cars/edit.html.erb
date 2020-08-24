@@ -11,8 +11,7 @@
      </ul>
    <% end %>
    <%= form_for @car do |car_fields| %>
-  <%= render partial: "/loans/form", locals: {car_fields: car_fields}%>
+  <%= render partial: "form", locals: {car_fields: car_fields}%>
   <%= f.submit 'update'%>
 <% end %>
 <% end %>
-
