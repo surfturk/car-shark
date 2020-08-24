@@ -1,5 +1,5 @@
 <h1>Add New Loan</h1>
-<%= form_for @loan do |f|%>
+ <%= form_for @loan do |f|%>
    <% if @loan.errors.any? %>
     <h2>Errors:</h2>
       <ul>
@@ -8,11 +8,7 @@
       <% end %> 
      </ul>
   <% end %>
-    <%= f.label :category%><br>
-    <%= f.text_field :category%><br>
-
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount%><br>
+    <%= render partial: "form", locals: {f: f}%>
 <br>
     Pick a vehicle by customer name:
     <%=f.hidden_field :user_id, :value => current_user.id %>

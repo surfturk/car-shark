@@ -1,6 +1,6 @@
 # CarShark
 
-CarShark is a loan app that tailored to a Chevrolet dealership
+CarShark is a loan app that is tailored to a Chevrolet dealership
 
 ## Installation
 
