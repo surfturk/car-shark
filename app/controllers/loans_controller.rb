@@ -1,19 +1,12 @@
 class LoansController < ApplicationController
+    
 
-    def models
-     @colorado = Car.colorado
-      render :model
-    end
-  
-  
-  
   
     def index # show all records
         #will have template
         # @loans = Loan.all
-        @cars = Car.all
-        @loans = Loan.all
-      
+        @cars = current_user.cars.all
+        @loans = current_user.loans.all
     end
  
      def show # show single record
@@ -37,8 +30,12 @@ class LoansController < ApplicationController
      end
  
      def edit # display form for existing record
-       #will have template
-       @loan = Loan.find(params[:id])
+       #will have templateif
+       if
+       @loan = current_user.loans.find(params[:id])
+       else
+        render 'loans'
+       end  
      end
  
      def update # save changes
@@ -63,6 +60,7 @@ class LoansController < ApplicationController
        def allowed_params
          params.require(:loan).permit(:category, :amount, :user_id, :car_id)
        end
+
 
 end
 

@@ -1,23 +1,22 @@
 class CarsController < ApplicationController
-    helper_method :has_permission
-    
+    # helper_method :has_permission
 
     def index # show all records
-        #will have template
-        @cars = Car.all
+          #will have template
+          @cars = current_user.cars.all
+          @loans = current_user.loans.all
     end
 
-     def model
-      @colorado = Car.colorado
-      @tahoe = Car.tahoe
-      @traverse = Car.traverse
-       render :model
-     end
- 
-     def show # show single record
+    def model
+      @colorado = current_user.cars.colorado
+      render :model
+    end  
+
+
+    def show # show single record
        #will have template
        @car = Car.find(params[:id])
-     end
+    end
  
      def new # display form for new record
        #will have template
@@ -36,9 +35,8 @@ class CarsController < ApplicationController
  
      def edit # display form for existing record
        #will have template
-       @car = Car.find(params[:id])
-     end
- 
+        find_car
+    end
      def update # save changes
         #wll save and redirect
         @car = Car.find(params[:id])
@@ -62,7 +60,9 @@ class CarsController < ApplicationController
          params.require(:car).permit(:customer_name, :manufacturer, :model, :year,)
        end
 
-       def has_permission(object)
-         object.users.include?(current_user)
-    end
-end
+       def find_car
+         @car = current_user.cars.find(params[:id])
+       end
+  end
+       
+
