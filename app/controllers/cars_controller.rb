@@ -60,7 +60,7 @@ class CarsController < ApplicationController
        end
 
        def find_car
-         @car = current_user.cars.find(params[:id])
+         @car = Car.find(params[:id])
        end
   end
        
