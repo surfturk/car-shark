@@ -1,8 +1,8 @@
 class CarsController < ApplicationController
-    # helper_method :has_permission
+     helper_method :has_permission
 
     def index # show all records
-          @cars = Car.all
+          @cars = Car.where(owner: current_user)
           # @loans = current_user.loans.all
     end
 
@@ -24,7 +24,7 @@ class CarsController < ApplicationController
  
      def create # save new record
        #wll save and redirect
-       @car = Car.new(allowed_params)
+       @car = current_user.cars.build(allowed_params)
        if @car.save
          redirect_to cars_path
        else
@@ -56,12 +56,16 @@ class CarsController < ApplicationController
  
      private
        def allowed_params
-         params.require(:car).permit(:customer_name, :manufacturer, :model, :year,)
+         params.require(:car).permit(:customer_name, :manufacturer, :model, :year, :user_id)
        end
 
        def find_car
          @car = Car.find(params[:id])
        end
+
+       def has_permission(car)
+            car.owner == current_user
+        end
   end
        
 

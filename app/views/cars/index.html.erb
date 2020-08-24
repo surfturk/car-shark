@@ -13,8 +13,10 @@
       Manufacturer: <%= link_to car.manufacturer, car_path(car) %><br>
       Model: <%= car.model %> <br>
       Year: <%= car.year %> <br> | 
+    <% if has_permission(car) %>
       <%= link_to 'edit', edit_car_path(car) %> |
       <%= link_to 'delete',car, method: :delete %>
+    <% end %>
    </div>   
   <% end %>
 </div>
