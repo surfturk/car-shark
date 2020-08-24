@@ -5,7 +5,6 @@
   <% @loans.each do |loan| %>
   <div >
   <p>
-     Customer Name: <%= loan.car.customer_name%><br>
       Category: <%= link_to loan.category, loan_path(loan) %><br>
       Amount: <%= loan.amount %> | 
       <%= link_to 'edit', edit_loan_path(loan) %> |

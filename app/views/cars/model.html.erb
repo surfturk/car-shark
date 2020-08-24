@@ -1,8 +1,6 @@
 <h2>Colorado Customers</h2>
 <% @colorado.each do |car| %>
-<%= car.customer_name %><br>
-<%= car.model %><br>
-<%= car.year %><br><br>
+<%= render partial: "model_form", locals: {car: car}%>
 <% end %>
 <br>
 <%= link_to 'go back', cars_path %>
