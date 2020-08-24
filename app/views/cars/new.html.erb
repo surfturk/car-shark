@@ -10,7 +10,10 @@
     <% end %>
     <%= form_for @car do |car_fields| %>
   <%= render partial: "/loans/form", locals: {car_fields: car_fields}%>
-
+  Pick a loan by type:
+  <%=f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.collection_select :id, Loan.all, :id, :category, include_blank: true %><br> 
+  <br>
  <%= f.submit 'save'%>
  <% end %>
  <% end %>

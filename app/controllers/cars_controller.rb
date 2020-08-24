@@ -2,7 +2,6 @@ class CarsController < ApplicationController
     # helper_method :has_permission
 
     def index # show all records
-          #will have template
           @cars = current_user.cars.all
           @loans = current_user.loans.all
     end
@@ -35,7 +34,7 @@ class CarsController < ApplicationController
  
      def edit # display form for existing record
        #will have template
-        find_car
+       find_car
     end
      def update # save changes
         #wll save and redirect

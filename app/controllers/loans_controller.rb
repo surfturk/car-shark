@@ -2,11 +2,8 @@ class LoansController < ApplicationController
     
 
   
-    def index # show all records
-        #will have template
-        # @loans = Loan.all
-        @cars = current_user.cars.all
-        @loans = current_user.loans.all
+    def index 
+         @loans = current_user.loans.all
     end
  
      def show # show single record
