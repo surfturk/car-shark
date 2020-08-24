@@ -2,8 +2,8 @@ class CarsController < ApplicationController
     # helper_method :has_permission
 
     def index # show all records
-          @cars = current_user.cars.all
-          @loans = current_user.loans.all
+          @cars = Car.all
+          # @loans = current_user.loans.all
     end
 
     def model

@@ -16,6 +16,11 @@
   <%= f.label :amount %><br>
   <%= f.text_field :amount, class: "field"%><br>
 
+<br>
+     Pick a vehicle by customer name:
+     <%=f.hidden_field :user_id, :value => current_user.id %>
+     <%= f.collection_select :car_id, Car.all, :id, :customer_name, include_blank: true %><br> 
+     <br>
   <%= f.submit 'update'%>
 <% end %>
 </div>
