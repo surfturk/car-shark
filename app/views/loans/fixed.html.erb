@@ -1,0 +1,16 @@
+<h2>Fixed Loans</h2>
+
+<div class="grid-container">
+ <% @loans.each do |loan| %>
+ <div>
+    <% if loan.category.include?("Fixed") %>
+    <%= loan.category %>
+    <br>
+    <%= loan.amount %>
+    <br>
+    </div>
+  <% end %>
+ <% end %>
+</div>
+<br>
+<%= link_to 'go back', loans_path %>

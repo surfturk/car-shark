@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_171752) do
+ActiveRecord::Schema.define(version: 2020_08_31_222115) do
 
   create_table "cars", force: :cascade do |t|
     t.string "customer_name"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2020_08_24_171752) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_id"], name: "index_loans_on_car_id"
     t.index ["user_id"], name: "index_loans_on_user_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "car_id"
   end
 
 # Could not dump table "users" because of following StandardError

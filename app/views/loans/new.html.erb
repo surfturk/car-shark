@@ -1,25 +1,4 @@
 <h1>Add New Loan</h1>
- <%= form_for @loan do |f|%>
-   <% if @loan.errors.any? %>
-    <h2>Errors:</h2>
-      <ul>
-       <% @loan.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-      <% end %>
-     </ul>
-   <% end %>
-   <%= f.label :category%><br>
-    <%= f.text_field :category%><br>
-
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount%><br>
-   
-   
-<br>
-    Pick a vehicle by customer name:
-    <%=f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.collection_select :car_id, Car.all, :id, :customer_name, include_blank: true %><br> 
-    <br>
-    <%= f.submit 'submit'%> 
-
+  <%= form_for @loan do |f|%>
+  <%= render partial: "new", locals: {f: f}%>
 <% end %>

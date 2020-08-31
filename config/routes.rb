@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :notes
   get "/cars/model" => "cars#model"
+  get "/loans/fixed" => "loans#fixed"
   resources :loans do
     resources :cars
+  end
+  resources :cars do
+    resources :notes
   end
   resources :cars
   resources :application, only: [:index]

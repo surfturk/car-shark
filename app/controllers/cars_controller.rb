@@ -2,15 +2,13 @@ class CarsController < ApplicationController
      helper_method :has_permission
 
     def index # show all records
-          @cars = Car.where(owner: current_user)
-          # @loans = current_user.loans.all
+       @cars = Car.where(owner: current_user)
     end
 
     def model
       @colorado = current_user.cars.colorado
       render :model
     end  
-
 
     def show # show single record
        #will have template

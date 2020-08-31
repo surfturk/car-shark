@@ -1,0 +1,12 @@
+<% if @note.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+       <% @note.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %> 
+     </ul>
+    <% end %>
+       <%= f.label :notes%><br>
+       <%= f.text_field :notes%><br>
+    <%= f.submit 'save' %>
+

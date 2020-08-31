@@ -1,0 +1,13 @@
+<% if @car.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+       <% @car.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %> 
+     </ul>
+    <% end %>
+    <%= form_for @car do |car_fields| %>
+        <%= render partial: "form", locals: {car_fields: car_fields}%>
+        <%=f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit 'save'%>
+<% end %>

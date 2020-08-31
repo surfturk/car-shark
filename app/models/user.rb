@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :loans
   has_many :cars, through: :loans, dependent: :destroy
+  has_many :notes
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

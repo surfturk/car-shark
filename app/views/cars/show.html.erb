@@ -11,4 +11,8 @@
 
 <% end %>
 
+<%= link_to 'add note', new_car_note_path(@car.id)%>
+<br>
+<%= link_to 'notes', car_notes_path(@car.id)%>
+<br>
 <%= link_to 'go back', cars_path %>

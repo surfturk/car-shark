@@ -3,7 +3,7 @@
 <br>
 <div class ="grid-container">
   <% @loans.each do |loan| %>
-  <div >
+  <div>
   <p>
       Category: <%= link_to loan.category, loan_path(loan) %><br>
       Amount: <%= loan.amount %> | 
@@ -16,4 +16,6 @@
 <br>
 <br>
 
+<%= link_to 'Fixed Loans', loans_fixed_path %>
+<br>
 <%= link_to 'back to home', application_index_path %>

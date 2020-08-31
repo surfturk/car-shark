@@ -1,0 +1,18 @@
+ <% if @loan.errors.any? %>
+    <h2>Errors:</h2>
+      <ul>
+       <% @loan.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %>
+     </ul>
+    <% end %>
+    <%= f.label :category%><br>
+        <%= f.text_field :category%><br>
+
+        <%= f.label :amount %><br>
+        <%= f.text_field :amount%><br>
+   <br>
+        Pick a vehicle by customer name:
+        <%= f.collection_select :car_id, Car.all, :id, :customer_name, include_blank: true %><br> 
+    <br>
+        <%= f.submit 'submit'%> 

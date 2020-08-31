@@ -5,6 +5,11 @@ class LoansController < ApplicationController
     def index 
          @loans = current_user.loans.all
     end
+
+    def fixed
+      @loans = current_user.loans
+      render :index
+    end
  
      def show # show single record
        #will have template
@@ -57,6 +62,8 @@ class LoansController < ApplicationController
        def allowed_params
          params.require(:loan).permit(:category, :amount, :user_id, :car_id)
        end
+
+       
 
 
 end
