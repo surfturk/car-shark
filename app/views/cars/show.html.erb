@@ -9,8 +9,10 @@
  <h3>Category: <%= loan.category %></h3>
  <h3>Amount: <%= loan.amount %></h3><br>
 
+<% @car.notes.each do |note| %>
+ <h2>Notes: <%= note.notes %></h2>
 <% end %>
-
+<% end %>
 <%= link_to 'add note', new_car_note_path(@car.id)%>
 <br>
 <%= link_to 'notes', car_notes_path(@car.id)%>
