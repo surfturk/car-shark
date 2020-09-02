@@ -8,7 +8,7 @@ class LoansController < ApplicationController
 
     def fixed
       @loans = current_user.loans
-      render :index
+      render :fixed
     end
  
      def show # show single record
