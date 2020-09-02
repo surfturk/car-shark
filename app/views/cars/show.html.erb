@@ -2,16 +2,19 @@
 <h3>Customer Name: <%= @car.customer_name %></h3>
 <h3>Manufacturer: <%= @car.manufacturer%></h3>
 <h3>Model: <%= @car.model%></h3>
-<h3>Year: <%= @car.year%></h3>
-<br>
-<h2>Loan details</h2>
-<% @car.loans.each do |loan| %>
- <h3>Category: <%= loan.category %></h3>
- <h3>Amount: <%= loan.amount %></h3><br>
+    <h3>Year: <%= @car.year%></h3>
+    <br>
+    <h2>Loan details</h2>
+ <% @car.loans.each do |loan| %>
+    <h3>Category: <%= loan.category %></h3>
+    <h3>Amount: <%= loan.amount %></h3><br>
 
 <% @car.notes.each do |note| %>
- <h2>Notes: <%= note.notes %></h2>
-<% end %>
+    <h4>Notes:</h4>
+    <%= note.notes %>
+ <% end %>
+ <br>
+ <br>
 <% end %>
 <%= link_to 'add note', new_car_note_path(@car.id)%>
 <br>

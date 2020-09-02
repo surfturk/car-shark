@@ -1,8 +1,10 @@
 <h1>Notes</h1>
 
 <% @car.notes.each do |f| %>
-<%= f.notes %>
+    <br>
+    <%= f.notes %>
 <%end%>
-
+    <br>
+    <br>
 <%= link_to 'go back', car_path(@car.id) %>
 
